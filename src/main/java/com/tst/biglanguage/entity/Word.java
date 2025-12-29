@@ -4,7 +4,14 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "words")
+//@Table(name = "words")
+@Table(
+        name = "words",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {"user_id", "value"})
+        }
+)
+// uniqueConstraints -> 1 User không được lưu trùng , nhưng user khác thì được
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,11 +40,11 @@ public class Word {
     // Từ này thuộc ngôn ngữ nào
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "language_id", nullable = false)
-    private Language languages;
+    private Language language;
 
     // Từ này của user nào
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User users;
+    private User user;
 }
 

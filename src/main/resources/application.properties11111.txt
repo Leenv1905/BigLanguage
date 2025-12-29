@@ -1,7 +1,8 @@
 spring.application.name=BigLanguage
-
+# C?u hinh k?t n?i MySQL
 spring.datasource.url=jdbc:mysql://localhost:3306/biglang?useSSL=false&serverTimezone=UTC
-
+#useSSL=false ?? tt SSL n?u khong dung.
+#serverTimezone=UTC tranh l?i timezone.
 spring.datasource.username=root
 spring.datasource.password=
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
@@ -9,11 +10,14 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 # JPA / Hibernate
 spring.jpa.hibernate.ddl-auto=update
-
+#update: Hibernate s? t? t?o/t? c?p nh?t b?ng theo entity.
+#Co th? dung create, create-drop, none tuy nhu c?u
 spring.jpa.show-sql=true
-
+#hi?n th? cau SQL tren console ?? d? debug.
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
-
+# Dialect phù hop voi Hibernate 7
+# Format SQL cho d? ??c
+# spring.jpa.properties.hibernate.format_sql=true
 
 # =============================== # Logging # ===============================
 # logging.level.org.hibernate.SQL=DEBUG
@@ -22,5 +26,5 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 # ================= JWT =================
 app.jwt.secret=MySuperSecretKeyThatIsAtLeast32CharactersLong
 app.jwt.expiration=86400000
-#time:86400000
+#Time la 86400000
 
